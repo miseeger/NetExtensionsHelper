@@ -90,19 +90,29 @@ namespace FX.SalesLogix.NetExtensionsHelper
 			if (ExtensionProperties.ParentHandle == IntPtr.Zero)
 				throw new ApplicationException("Invalid properties passed");
 
-			if (ExtensionProperties.ExtensionState == ExtensionState.Initialize)
+			switch (ExtensionProperties.ExtensionState)
 			{
-				this.Show();
-
-				Win32.SetParent(this.Handle, ExtensionProperties.ParentHandle);
-
-				if (ExtensionProperties.FillParent)
-					Fill(ExtensionProperties.ParentHandle);
-			}
-			else
-			{
-				if (SalesLogixRecordChanged != null) 
-					SalesLogixRecordChanged(ExtensionProperties.RecordID);
+			    case ExtensionState.Initialize:
+			        this.Show();
+			        Win32.SetParent(this.Handle, ExtensionProperties.ParentHandle);
+			        if (ExtensionProperties.FillParent)
+			            Fill(ExtensionProperties.ParentHandle);
+			        break;
+			    case ExtensionState.SetContext:
+			        if (SalesLogixRecordChanged != null) 
+			            SalesLogixRecordChanged(ExtensionProperties.RecordID);
+			        break;
+			    case ExtensionState.ExcuteCommand:
+			        switch (ExtensionProperties.Command)
+			        {
+			            case "RESIZE":
+                            if (ExtensionProperties.FillParent)
+                            {
+                                Fill(ExtensionProperties.ParentHandle);
+                            }
+			                break;
+			        }
+			        break;
 			}
 
             return null;
@@ -132,5 +142,6 @@ namespace FX.SalesLogix.NetExtensionsHelper
                 this.Size = rect.Size;
             }
         }
+
     }
 }
