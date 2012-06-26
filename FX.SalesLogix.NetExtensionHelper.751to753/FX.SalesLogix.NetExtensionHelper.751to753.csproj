@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{FBEAEF42-133A-4A72-8044-7B75C9A3ED43}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>FX.SalesLogix.NetExtensionHelper</RootNamespace>
+    <AssemblyName>FX.SalesLogix.NetExtensionHelper</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SourceAnalysisOverrideSettingsFile>C:\Users\Michael\AppData\Roaming\ICSharpCode/SharpDevelop4\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <TargetFrameworkProfile />
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <RunSourceAnalysis>False</RunSourceAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <StartAction>Project</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.SLXSystem">
+      <HintPath>..\References\SalesLogix\7.5.1to7.5.3\Interop.SLXSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SalesLogix.NetExtensions.Core">
+      <HintPath>..\References\SalesLogix\7.5.1to7.5.3\Sage.SalesLogix.NetExtensions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SalesLogix.NetExtensions.Framework">
+      <HintPath>..\References\SalesLogix\7.5.1to7.5.3\Sage.SalesLogix.NetExtensions.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\FX.SalesLogix.NetExtensionsHelper\ExtensionProperties.cs">
+      <Link>ExtensionProperties.cs</Link>
+    </Compile>
+    <Compile Include="..\FX.SalesLogix.NetExtensionsHelper\SalesLogixControl.cs">
+      <Link>SalesLogixControl.cs</Link>
+    </Compile>
+    <Compile Include="..\FX.SalesLogix.NetExtensionsHelper\SalesLogixDialog.cs">
+      <Link>SalesLogixDialog.cs</Link>
+    </Compile>
+    <Compile Include="..\FX.SalesLogix.NetExtensionsHelper\SalesLogixService.cs">
+      <Link>SalesLogixService.cs</Link>
+    </Compile>
+    <Compile Include="..\FX.SalesLogix.NetExtensionsHelper\Utility\Win32.cs">
+      <Link>Utility\Win32.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utility" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+</Project>

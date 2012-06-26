@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FX.SalesLogix.NetExtensionsHelper</RootNamespace>
     <AssemblyName>FX.SalesLogix.NetExtensionsHelper</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -31,6 +31,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,19 +53,30 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sage.SalesLogix.NetExtensions.Core, Version=7.5.1.1742, Culture=neutral, PublicKeyToken=e23619fa05908439, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\SalesLogix\Sage.SalesLogix.NetExtensions.Core.dll</HintPath>
+    <Reference Include="Interop.SLXSystem">
+      <HintPath>..\References\SalesLogix\7.5.4\Interop.SLXSystem.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Sage.SalesLogix.NetExtensions.Framework, Version=7.5.1.1742, Culture=neutral, PublicKeyToken=e23619fa05908439, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\SalesLogix\Sage.SalesLogix.NetExtensions.Framework.dll</HintPath>
+    <Reference Include="Sage.SalesLogix.NetExtensions.Core">
+      <HintPath>..\References\SalesLogix\7.5.4\Sage.SalesLogix.NetExtensions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SalesLogix.NetExtensions.Framework">
+      <HintPath>..\References\SalesLogix\7.5.4\Sage.SalesLogix.NetExtensions.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SalesLogixControl.cs">
@@ -74,6 +86,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ExtensionProperties.cs" />
+    <Compile Include="SalesLogixService.cs" />
     <Compile Include="Utility\Win32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,6 +106,19 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="VBScriptHelpers" />
+    <Folder Include="VBScriptNetExTemplates" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="VBScriptHelpers\DotNetExtensionControl.vbs" />
+    <None Include="VBScriptHelpers\DotNetExtensionDialog.vbs" />
+    <None Include="VBScriptHelpers\DotNetExtensionService.vbs" />
+    <None Include="VBScriptHelpers\readme.txt" />
+    <None Include="VBScriptNetExTemplates\SlxNetExDialogTemplate.vbs" />
+    <None Include="VBScriptNetExTemplates\SlxNetExFormTemplate.vbs" />
+    <None Include="VBScriptNetExTemplates\SlxNetExServiceTemplate.vbs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

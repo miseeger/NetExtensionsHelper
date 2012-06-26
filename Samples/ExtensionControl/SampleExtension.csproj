@@ -31,13 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Sage.SalesLogix.NetExtensions.Core, Version=7.5.1.1742, Culture=neutral, PublicKeyToken=e23619fa05908439, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\SalesLogix\Sage.SalesLogix.NetExtensions.Core.dll</HintPath>
+    <Reference Include="Interop.SLXSystem">
+      <HintPath>..\..\References\SalesLogix\7.5.4\Interop.SLXSystem.dll</HintPath>
     </Reference>
-    <Reference Include="Sage.SalesLogix.NetExtensions.Framework, Version=7.5.1.1742, Culture=neutral, PublicKeyToken=e23619fa05908439, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\SalesLogix\Sage.SalesLogix.NetExtensions.Framework.dll</HintPath>
+    <Reference Include="Sage.SalesLogix.NetExtensions.Core">
+      <HintPath>..\..\References\SalesLogix\7.5.4\Sage.SalesLogix.NetExtensions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sage.SalesLogix.NetExtensions.Framework">
+      <HintPath>..\..\References\SalesLogix\7.5.4\Sage.SalesLogix.NetExtensions.Framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -64,18 +65,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FX.SalesLogix.NetExtensionsHelper\FX.SalesLogix.NetExtensionsHelper.csproj">
-      <Project>{A2EA1A67-E621-42B7-9766-41EE33F2AC0C}</Project>
-      <Name>FX.SalesLogix.NetExtensionsHelper</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\FX.SalesLogix.NetExtensionsHelper\FX.SalesLogix.NetExtensionsHelper.csproj">
+      <Project>{A2EA1A67-E621-42B7-9766-41EE33F2AC0C}</Project>
+      <Name>FX.SalesLogix.NetExtensionsHelper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

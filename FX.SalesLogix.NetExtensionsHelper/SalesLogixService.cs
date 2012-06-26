@@ -1,19 +1,41 @@
 ﻿using Sage.SalesLogix.NetExtensions;
 using Sage.SalesLogix.NetExtensions.Licensing;
 using Sage.SalesLogix.NetExtensions.SalesLogix;
-using Slx.NetExtensions.Base;
 
 namespace FX.SalesLogix.NetExtensionsHelper
 {
 
+	public class ServiceResult
+	{
+		
+		public const string Result_Ok = "OK";
+
+		public string Message { get; set; }
+		public string Exception { get; set; }
+		public string Result { get; set; }
+		public bool WithError { get; set; }
+		
+		public ServiceResult()
+		{
+			WithError = false;
+			Result = Result_Ok;
+		}
+ 
+	}
+
+	
+	
 	public abstract class SlxServiceCommandDispatcher
     {
-        protected abstract object DispatchServiceCommand(string command, object[] commandArgs);
+
+		protected abstract object DispatchServiceCommand(string command, object[] commandArgs);
         protected abstract void InitializeService();
-    }
+
+	}
 	
 	
-    public abstract class SalesLogixService: SlxServiceCommandDispatcher, IRunnable
+
+	public abstract class SalesLogixService: SlxServiceCommandDispatcher, IRunnable
     {
 
         public ExtensionProperties ExtensionProperties = null;
@@ -22,10 +44,10 @@ namespace FX.SalesLogix.NetExtensionsHelper
 
 
         /// <summary>
-        /// Initialisierung des Objekts (über Slx interne Extension-Creation)
+        /// Object Initialization
         /// </summary>
-        /// <param name="slxApplication">Das Application-Objekt von SalesLogix</param>
-        /// <param name="licenseKeyManager">Der Lizenzschlüssel</param>
+        /// <param name="slxApplication">SLX Application object</param>
+        /// <param name="licenseKeyManager">License key</param>
         public void Initialize(ISlxApplication slxApplication, ILicenseKeyManager licenseKeyManager)
         {
             SlxApplication      = slxApplication;
@@ -36,10 +58,10 @@ namespace FX.SalesLogix.NetExtensionsHelper
 
 
         /// <summary>
-        /// Empfängt ein Kommando gekennzeichnetes Argument und reicht dies an
-        /// die Extensionproperties weiter. Wird das Argument als Kommando 
-        /// identifiziert, wird es an den ServiceCommand-Dispatcher weitergeleitet,
-        /// der dieses dann schlussendlich ausführt.
+        /// Receives am argument Array of objects and forwards it to
+        /// set the ExtensionProperties. If the arguments are identified
+        /// as for a command to be executed they will again be forwarded to
+        /// the command dispatcher to finally execute the service command.
         /// </summary>
         /// <param name="args"></param>
         /// <returns></returns>
