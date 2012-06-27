@@ -1,39 +1,44 @@
-﻿using Sage.SalesLogix.NetExtensions;
+﻿using System;
+using Sage.SalesLogix.NetExtensions;
 using Sage.SalesLogix.NetExtensions.Licensing;
 using Sage.SalesLogix.NetExtensions.SalesLogix;
 
 namespace FX.SalesLogix.NetExtensionsHelper
 {
 
+	public static class ServiceConst
+	{
+
+		public const string ResultOk = "OK";
+
+	}
+
+
 	public class ServiceResult
 	{
-		
-		public const string Result_Ok = "OK";
 
-		public string Message { get; set; }
-		public string Exception { get; set; }
-		public string Result { get; set; }
-		public bool WithError { get; set; }
-		
+		public Boolean WithError { get; set; }
+		public String ErrorMessage { get; set; }
+		public String StackTrace { get; set; }
+		public object Result { get; set; }
+
 		public ServiceResult()
 		{
 			WithError = false;
-			Result = Result_Ok;
+			Result = ServiceConst.ResultOk;
 		}
- 
+
 	}
 
-	
-	
+
 	public abstract class SlxServiceCommandDispatcher
-    {
+	{
 
 		protected abstract object DispatchServiceCommand(string command, object[] commandArgs);
-        protected abstract void InitializeService();
+		protected abstract void InitializeService();
 
 	}
-	
-	
+
 
 	public abstract class SalesLogixService: SlxServiceCommandDispatcher, IRunnable
     {
