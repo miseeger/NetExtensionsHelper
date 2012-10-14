@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-# SharpDevelop 4.2.0.8783
+# SharpDevelop 4.3
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FX.SalesLogix.NetExtensionsHelper", "FX.SalesLogix.NetExtensionsHelper\FX.SalesLogix.NetExtensionsHelper.csproj", "{A2EA1A67-E621-42B7-9766-41EE33F2AC0C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FX.SalesLogix.NetExtensionHelper.751to753", "FX.SalesLogix.NetExtensionHelper.751to753\FX.SalesLogix.NetExtensionHelper.751to753.csproj", "{FBEAEF42-133A-4A72-8044-7B75C9A3ED43}"
@@ -36,6 +36,10 @@ Global
 		{11B4F0BC-4AE9-456D-A202-B6A731F2F304}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11B4F0BC-4AE9-456D-A202-B6A731F2F304}.Release|x86.Build.0 = Release|Any CPU
 		{11B4F0BC-4AE9-456D-A202-B6A731F2F304}.Release|x86.ActiveCfg = Release|Any CPU
+		{A2EA1A67-E621-42B7-9766-41EE33F2AC0C}.Debug|x86.Build.0 = Debug|Any CPU
+		{A2EA1A67-E621-42B7-9766-41EE33F2AC0C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A2EA1A67-E621-42B7-9766-41EE33F2AC0C}.Release|x86.Build.0 = Release|Any CPU
+		{A2EA1A67-E621-42B7-9766-41EE33F2AC0C}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

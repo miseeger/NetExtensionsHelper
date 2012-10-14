@@ -11,7 +11,7 @@ using FX.SalesLogix.NetExtensionsHelper.Utility;
 namespace FX.SalesLogix.NetExtensionsHelper
 {
 	[ToolboxBitmap(typeof(Form))]
-    public class SalesLogixDialog : Form, IRunnable
+    public class SalesLogixDialog : Form, IRunnable, IInitializable
     {
 		public ExtensionProperties ExtensionProperties = null;
 		public ISlxApplication SlxApplication = null;
@@ -76,6 +76,11 @@ namespace FX.SalesLogix.NetExtensionsHelper
 
         #endregion
 
+        public virtual void Initialize()
+        {
+        	// Custom initialization: Override this method in your SalesLogixDialog.
+        }
+        
         public void Initialize(ISlxApplication SlxApplication, ILicenseKeyManager LicenseKeyManager)
         {
             this.SlxApplication = SlxApplication;
@@ -97,6 +102,7 @@ namespace FX.SalesLogix.NetExtensionsHelper
 			if (ExtensionProperties.RecordID == string.Empty)
 				throw new ApplicationException("Invalid properties passed");
 
+			this.Initialize();
 			this.ShowDialog();
 			return null;
         }

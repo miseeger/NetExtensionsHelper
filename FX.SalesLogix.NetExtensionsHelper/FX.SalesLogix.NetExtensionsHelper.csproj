@@ -79,6 +79,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IInitializable.cs" />
     <Compile Include="SalesLogixControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

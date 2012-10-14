@@ -13,7 +13,7 @@ namespace FX.SalesLogix.NetExtensionsHelper
     public delegate void RecordChangeEventHandler(string CurrentID);
 
     [ToolboxBitmap(typeof(Form))]
-    public class SalesLogixControl : UserControl, IRunnable
+    public class SalesLogixControl : UserControl, IRunnable, IInitializable
     {
         [Description("Event that is raised when the record is changed in SalesLogix, if passed"), Category("SalesLogix")]
         public event RecordChangeEventHandler SalesLogixRecordChanged;
@@ -64,6 +64,11 @@ namespace FX.SalesLogix.NetExtensionsHelper
 
         #endregion
 
+        public virtual void Initialize()
+        {
+        	// Custom initialization: Override this method in your SalesLogixControl.
+        }
+
         public void Initialize(ISlxApplication SlxApplication, ILicenseKeyManager LicenseKeyManager)
         {
             this.SlxApplication = SlxApplication;
@@ -93,6 +98,7 @@ namespace FX.SalesLogix.NetExtensionsHelper
 			switch (ExtensionProperties.ExtensionState)
 			{
 			    case ExtensionState.Initialize:
+					this.Initialize();
 			        this.Show();
 			        Win32.SetParent(this.Handle, ExtensionProperties.ParentHandle);
 			        if (ExtensionProperties.FillParent)
